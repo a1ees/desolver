@@ -1,0 +1,23 @@
+@font-face {
+  src: url(../fonts/Nekst-Light.woff2);
+  font-family: 'Inter';
+  font-weight: 200;
+}
+
+@font-face {
+  src: url(../fonts/Nekst-Regular.woff2);
+  font-family: 'Inter';
+  font-weight: 400;
+}
+
+@font-face {
+  src: url(../fonts/Nekst-SemiBold.woff2);
+  font-family: 'Inter';
+  font-weight: 600;
+}
+
+@font-face {
+  src: url(../fonts/Nekst-Bold.woff2);
+  font-family: 'Inter';
+  font-weight: 700;
+}

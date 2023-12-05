@@ -1,0 +1,263 @@
+.footer {
+  padding: 64px 0px;
+}
+
+@media screen and (max-width: 1440px) {
+  .footer {
+    padding: 64px 72px 64px 72px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .footer {
+    padding: 0px 0px 64px 0px;
+  }
+}
+
+.footer__content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1420px) {
+  .footer__content {
+    grid-template-rows: min-content 1fr;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 64px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .footer__content {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.footer__logo {
+  display: none;
+  width: 32px;
+  height: 51px;
+}
+
+.footer__logo-full {
+  display: block;
+  width: 196px;
+  height: 51px;
+}
+
+@media screen and (max-width: 1420px) {
+  .footer__logo {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 2;
+    grid-column-end: 2;
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 1420px) {
+  .footer__logo_full {
+    display: block;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 2;
+    grid-column-end: 2;
+    justify-content: flex-start;
+  }
+  .footer__logo {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .footer__logo_full {
+    order: 1;
+  }
+}
+
+.footer__contacts {
+  display: flex;
+}
+
+@media screen and (max-width: 1420px) {
+  .footer__contacts {
+    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-row-end: 3;
+    grid-column-end: 3;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 580px) {
+  .footer__contacts {
+    order: 2;
+    flex-direction: column;
+  }
+}
+
+.footer__contact:not(:last-child) {
+  margin-right: 180px;
+}
+
+@media screen and (max-width: 740px) {
+  .footer__contact:not(:last-child) {
+    margin-right: 136px;
+  }
+}
+
+@media screen and (max-width: 712px) {
+  .footer__contact:not(:last-child) {
+    margin-right: 110px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .footer__contact:not(:last-child) {
+    margin-bottom: 48px;
+  }
+}
+
+.contact__title {
+  padding: 0px 0px 32px 0px;
+  margin: 0;
+  color: #8C8E94;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+@media screen and (max-width: 360px) {
+  .footer__contact {
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+.contact__link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  line-height: 19.2px;
+}
+
+@media screen and (max-width: 360px) {
+  .contact__link {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+.footer__social {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: 1420px) {
+  .footer__social {
+    justify-content: flex-end;
+    margin-right: 0px;
+    grid-row-start: 1;
+    grid-column-start: 2;
+    grid-row-end: 2;
+    grid-column-end: 3;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .footer__social {
+    order: 0;
+    justify-content: flex-start;
+  }
+}
+
+.social__icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: no-repeat;
+  background-position: center;
+}
+
+.social__icon:not(:last-child) {
+  margin-right: 20px;
+}
+.social__icon_discord {
+  background-image: url('../images/logo/discord-logo.svg');
+}
+.social__icon_telegram {
+  background-image: url('../images/logo/telegram-logo.svg');
+}
+.social__icon_vk {
+  background-image: url('../images/logo/vk-logo.svg');
+}
+.social__icon_youtube {
+  background-image: url('../images/logo/youtube-logo.svg');
+}
+.footer__copyright {
+  margin-top: 64px;
+}
+
+@media screen and (max-width: 580px) {
+  .footer__copyright {
+    margin-top: 48px;
+  }
+}
+
+.copyright {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 580px) {
+  .copyright {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .copyright {
+    flex-direction: column-reverse;
+  }
+}
+
+.footer__address {
+  padding: 0;
+  margin: 0;
+  color: #8C8E94;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+@media screen and (max-width: 580px) {
+  .footer__address {
+    margin-bottom: 48px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .footer__address {
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 0px;
+  }
+}
+
+.copyright__icons {
+  display: flex;
+}
+
+.copyright__icon_language-selector:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.copyright__icon:not(:last-child) {
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 360px) {
+  .copyright__icons {
+    margin-bottom: 48px;
+  }
+}

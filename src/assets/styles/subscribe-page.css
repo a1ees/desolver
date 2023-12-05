@@ -1,0 +1,121 @@
+.section__page-info {
+  margin: 72px 0px 205px 0px;
+}
+
+@media screen and (max-width: 956px) {
+  .section__page-info {
+    margin: 72px 0px 128px 0px;
+  }
+}
+
+.pay-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  grid-template-rows: max-content;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+}
+
+@media screen and (max-width: 956px) {
+  .pay-section {
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content;
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+  }
+}
+
+.pay-section__item {
+  padding: 24px;
+  background-color: #1A1A1E;
+  border-radius: 16px;
+}
+.pay-section__days {
+  padding: 0;
+  margin: 0px 0px 16px 0px;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 200;
+}
+
+@media screen and (max-width: 360px) {
+  .pay-section__days {
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+
+.pay-section__coast {
+  padding: 0;
+  margin: 0px 0px 74px 0px;
+  font-size: 36px;
+  line-height: 43px;
+  font-weight: 800;
+}
+
+@media screen and (max-width: 360px) {
+  .pay-section__coast {
+    font-size: 36px;
+    line-height: 38px;
+  }
+}
+
+@media screen and (max-width: 956px) {
+  .pay-section__coast {
+    margin: 0px 0px 40px 0px;
+  }
+}
+
+.pay-section__button {
+  border: none;
+  background: none;
+  text-align: center;
+  background-color: #B2B6FF;
+  font-size: 16px;
+  line-height: 19px;
+  padding: 12px 125px;
+  color: #121214;
+  border-radius: 8px;
+}
+
+.pay-section__button:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 956px) {
+  .pay-section__button {
+    padding: 12px 258px;
+  }
+}
+
+@media screen and (max-width: 708px) {
+  .pay-section__button {
+    padding: 12px 180px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .pay-section__button {
+    padding: 12px 120px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .pay-section__button {
+    padding: 12px 100px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .pay-section__button {
+    padding: 12px 79px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .pay-section__button {
+    padding: 12px 50px;
+  }
+}

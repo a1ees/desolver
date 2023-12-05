@@ -1,0 +1,31 @@
+
+.support {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  margin: 0px 0px 100px 0px;
+}
+
+@media screen and (max-width: 340px) {
+  .support {
+    padding: 0px 20px;
+  }
+}
+
+.support__text {
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+  word-wrap: break-word;
+}
+.support__text-link {
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+  color: #828289;
+  word-wrap: break-word;
+}
+.support__link {
+  color: #B2B6FF;
+}
