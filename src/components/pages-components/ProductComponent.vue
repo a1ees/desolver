@@ -20,7 +20,22 @@
       </div>
       <div class="products__rank">
         Рейтинг
-        <p class="products__rank-rating">{{ product.rating }}</p>
+        <div class="products__rank-rating">
+          <svg
+            class="products__rank-svg"
+            width="19"
+            height="18"
+            viewBox="0 0 19 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9.5 0.5L11.6329 7.06434H18.535L12.9511 11.1213L15.084 17.6857L9.5 13.6287L3.91604 17.6857L6.04892 11.1213L0.464963 7.06434H7.36712L9.5 0.5Z"
+              fill="#B2B6FF"
+            />
+          </svg>
+          <p class="products__rank-num">{{ product.rating }}</p>
+        </div>
       </div>
       <dark-button :textContent="`Купить за ${product.price}₽`" />
     </div>
@@ -112,6 +127,17 @@ export default {
 }
 
 .products__rank-rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.products__rank-svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 1.5px;
+}
+
+.products__rank-num {
   padding: 0;
   margin: 0;
   color: #b2b6ff;

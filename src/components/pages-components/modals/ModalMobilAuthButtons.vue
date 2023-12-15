@@ -30,15 +30,7 @@ export default {
   z-index: 1000;
   background-color: #121214;
 }
-.button {
-}
-
 .button:not(:last-child) {
   margin-bottom: 8px;
-}
-
-.button_autoriz {
-}
-.button_reg {
 }
 </style>
