@@ -90,6 +90,7 @@ export default {
       errorText: "",
       allUsers: [],
       subscribe: null,
+      capcha: "SSA3YO"
     };
   },
   mounted() {
@@ -166,7 +167,7 @@ export default {
       } else if (this.formData.password !== this.formData.repeatPassword) {
         this.setError("on", "Пароли не совпадают");
         return false;
-      } else if (!this.formData.capcha) {
+      } else if (this.formData.capcha.toUpperCase() !== this.capcha) {
         this.setError("on", "Капча введена неверно");
         return false;
       } else {
