@@ -1,6 +1,6 @@
 <template>
   <div class="market__filters filters">
-    <div class="filters__buttons">
+    <div v-if="sortByScripts" class="filters__buttons">
       <button
         class="filters__button-configs"
         :class="{
@@ -20,24 +20,24 @@
         Скрипты
       </button>
     </div>
-    <div class="filters__price">
+    <div v-if="sortByPrice" class="filters__price">
       <h2 class="filters__title">Сортировать по цене</h2>
       <div class="filters__inputs">
-        <input
-          v-model="filterOptions.minPrice"
-          type="text"
+        <input-component
           class="filters__price-item"
-          placeholder="От 0₽"
+          :placeholder="'От 0₽'"
+          @input="setMinPrice"
+          ref="inputMinPrice"
         />
-        <input
-          v-model="filterOptions.maxPrice"
-          type="text"
+        <input-component
           class="filters__price-item"
-          placeholder="До 10000₽"
+          :placeholder="'До 10000₽'"
+          @input="setMaxPrice"
+          ref="inputMaxPrice"
         />
       </div>
     </div>
-    <div class="filters__sortby">
+    <div v-if="sortOptions.length" class="filters__sortby">
       <h2 class="filters__title">Сортировать по</h2>
       <custom-dropdown
         :options="sortOptions"
@@ -45,7 +45,7 @@
         :currentOption="filterOptions.sortBy"
       />
     </div>
-    <div class="filters__products">
+    <div v-if="productOptions.length" class="filters__products">
       <h2 class="filters__title">Показывать товары</h2>
       <custom-dropdown
         :options="productOptions"
@@ -53,7 +53,7 @@
         :currentOption="filterOptions.products"
       />
     </div>
-    <div class="filters__game">
+    <div v-if="gameOptions.length" class="filters__game">
       <h2 class="filters__title">Игра</h2>
       <custom-dropdown
         :options="gameOptions"
@@ -61,7 +61,7 @@
         :currentOption="filterOptions.game"
       />
     </div>
-    <div class="filters__tags">
+    <div v-if="popularTags.length" class="filters__tags">
       <h2 class="filters__title">Популярные теги</h2>
       <div class="filters__tags-buttons">
         <button
@@ -77,7 +77,11 @@
         </button>
       </div>
     </div>
-    <button class="filters__reset" @click="resetFilters">
+    <button
+      v-if="isProductFiltered"
+      class="filters__reset"
+      @click="resetFilters"
+    >
       Сбросить фильтры
     </button>
   </div>
@@ -85,66 +89,80 @@
 
 <script>
 import CustomDropdown from "./CustomDropdown.vue";
+import InputComponent from "./UI/InputComponent.vue";
+
 export default {
-  components: { CustomDropdown },
+  components: { CustomDropdown, InputComponent },
   name: "FiltersComponent",
+  props: {
+    sortOptions: {
+      type: Array,
+      default: () => [],
+    },
+    productOptions: {
+      type: Array,
+      default: () => [],
+    },
+    gameOptions: {
+      type: Array,
+      default: () => [],
+    },
+    popularTags: {
+      type: Array,
+      default: () => [],
+    },
+    sortByPrice: {
+      type: Boolean,
+      default: () => false,
+    },
+    sortByScripts: {
+      type: Boolean,
+      default: () => false,
+    },
+    isProductFiltered: {
+      type: Boolean,
+      default: () => false,
+    },
+  },
   data() {
-    const sortOptions = [
-      { label: "Время загрузки" },
-      { label: "Количество покупок" },
-      { label: "Рейтинг" },
-    ];
-
-    const productOptions = [{ label: "Все" }, { label: "Хз что тут писать" }];
-
-    const gameOptions = [
-      { label: "Все" },
-      { label: "CS:GO" },
-      { label: "Not CS:GO" },
-    ];
-
-    const popularTags = [
-      "hvh",
-      "legit",
-      "rage",
-      "lua",
-      "visual",
-      "free",
-      "gamesense",
-      "config",
-    ];
-
     return {
       filterOptions: {
         type: "config",
         minPrice: "",
         maxPrice: "",
-        sortBy: sortOptions[0].label,
-        products: productOptions[0].label,
-        game: gameOptions[0].label,
+        sortBy: this.sortOptions.length ? this.sortOptions[0].label : "",
+        products: this.productOptions.length
+          ? this.productOptions[0].label
+          : "",
+        game: this.gameOptions.length ? this.gameOptions[0].label : "",
         tagSelect: [],
       },
-      sortOptions: sortOptions,
-      productOptions: productOptions,
-      gameOptions: gameOptions,
-      popularTags: popularTags,
     };
   },
-
   mounted() {
     this.$emit("filterOptions", this.filterOptions);
   },
   methods: {
+    setMinPrice(minPrice) {
+      this.filterOptions.minPrice = minPrice;
+    },
+    setMaxPrice(maxPrice) {
+      this.filterOptions.maxPrice = maxPrice;
+    },
     resetFilters() {
       this.filterOptions = {
         type: "config",
         minPrice: "",
         maxPrice: "",
-        sortBy: this.sortOptions[0].label,
-        products: this.productOptions[0].label,
-        game: this.gameOptions[0].label,
+        sortBy: this.sortOptions.length ? this.sortOptions[0].label : "",
+        products: this.productOptions.length
+          ? this.productOptions[0].label
+          : "",
+        game: this.gameOptions.length ? this.gameOptions[0].label : "",
         tagSelect: [],
       };
+      this.$refs.inputMinPrice.inputValue = "";
+      this.$refs.inputMaxPrice.inputValue = "";
       this.$emit("resetFilters");
     },
     addTagSelect(tag) {
@@ -242,17 +260,6 @@ export default {
 
 .filters__inputs {
   display: flex;
-}
-
-.filters__price-item {
-  background: none;
-  background-color: #2b2b31;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-  color: #fff;
-  width: 100%;
-  padding: 12px 16px;
 }
 
 .filters__price-item:not(:last-child) {

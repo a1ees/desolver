@@ -22,14 +22,19 @@
         Рейтинг
         <p class="products__rank-rating">{{ product.rating }}</p>
       </div>
-      <button class="products__button">Купить за {{ product.price }}₽</button>
+      <dark-button :textContent="`Купить за ${product.price}₽`" />
     </div>
   </div>
 </template>
 
 <script>
+import DarkButton from "./UI/DarkButton.vue";
 export default {
   name: "ProductComponent",
+  components: {
+    DarkButton,
+  },
+
   props: {
     paginatedProduct: {
       required: true,
@@ -54,7 +59,6 @@ export default {
   background-color: #151518;
 }
 .products__image {
-  width: 100%;
   height: 110px;
 }
 .products__info {
@@ -111,21 +115,5 @@ export default {
   padding: 0;
   margin: 0;
   color: #b2b6ff;
-}
-
-.products__button {
-  border: none;
-  background: none;
-  border-radius: 10px;
-  padding: 12px 24px;
-  background-color: #1a1a1e;
-  color: #fff;
-  font-size: 16px;
-  line-height: 19.2px;
-}
-
-.products__button:hover {
-  cursor: pointer;
-  opacity: 0.7;
 }
 </style>

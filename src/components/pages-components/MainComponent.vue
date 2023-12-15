@@ -1,5 +1,53 @@
+<template>
+  <div class="page">
+    <div class="page__container">
+      <header-profile-component />
+      <main class="content">
+        <navigation-component v-if="shouldShowNavigation" />
+        <div class="content__section section">
+          <slot name="content"></slot>
+        </div>
+      </main>
+      <footer-component />
+    </div>
+  </div>
+</template>
+
+<script>
+import FooterComponent from "./FooterComponent.vue";
+import HeaderProfileComponent from "./HeaderProfileComponent.vue";
+import NavigationComponent from "./NavigationComponent.vue";
+
+export default {
+  components: {
+    FooterComponent,
+    NavigationComponent,
+    HeaderProfileComponent,
+  },
+  name: "MainComponent",
+  data() {
+    return {
+      shouldShowNavigation: true,
+    };
+  },
+  mounted() {
+    this.updateScreenWidth();
+    window.addEventListener("resize", this.updateScreenWidth);
+  },
+  methods: {
+    updateScreenWidth() {
+      this.shouldShowNavigation = window.innerWidth > 1260;
+    },
+  },
+  beforeUnmount() {
+    window.removeEventListener("resize", this.updateScreenWidth);
+  },
+};
+</script>
+
+<style scoped>
 .page {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   background-color: #121214;
   min-height: 100vh;
@@ -45,8 +93,6 @@
     max-width: 450px;
   }
 }
-
-
 
 @media screen and (max-width: 360px) {
   .page__container {
@@ -130,11 +176,11 @@
   cursor: pointer;
   padding: 16px 32px;
   border-radius: 6px;
-  background-image: url('../images/logo/burger.svg');
+  background-image: url("../../assets/images/logo/burger.svg");
   background-repeat: no-repeat;
   background-size: 20px 20px;
   background-position: center;
-  background-color: #B2B6FF;
+  background-color: #b2b6ff;
 }
 
 @media screen and (max-width: 1260px) {
@@ -191,3 +237,4 @@
     min-width: 328px;
   }
 }
+</style>

@@ -4,24 +4,37 @@
       <section class="market">
         <div class="market__products products">
           <div class="products__filter">
-            <input
-              type="text"
-              placeholder="Поиск товара"
+            <input-component
               class="products__filter-input"
-              v-model="filterInput"
+              :placeholder="'Поиск товара'"
+              @input="setFilter"
+              ref="inputFilter"
             />
             <button
               class="products__filter-button filter-button"
+              :class="{ 'products__filter-button_bored': isProductFiltered }"
               @click="searchProduct"
             >
-              <img
+              <svg
                 class="filter-button__logo"
-                src="../../assets/images/logo/search-button-logo.svg"
-              />
+                width="19"
+                height="19"
+                viewBox="0 0 19 19"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.35458 15.1245C9.85689 15.1241 11.3159 14.6212 12.4993 13.6958L16.22 17.4163L17.4168 16.2196L13.6961 12.4991C14.6221 11.3156 15.1253 9.85635 15.1257 8.35373C15.1257 4.62052 12.088 1.58301 8.35458 1.58301C4.62117 1.58301 1.5835 4.62052 1.5835 8.35373C1.5835 12.0869 4.62117 15.1245 8.35458 15.1245ZM8.35458 3.27569C11.1553 3.27569 13.4329 5.55319 13.4329 8.35373C13.4329 11.1543 11.1553 13.4318 8.35458 13.4318C5.55389 13.4318 3.27627 11.1543 3.27627 8.35373C3.27627 5.55319 5.55389 3.27569 8.35458 3.27569Z"
+                  fill="#121214"
+                />
+              </svg>
             </button>
           </div>
-          <div class="products__items">
+          <div v-if="paginatedProduct.length" class="products__items">
             <product-component :paginatedProduct="paginatedProduct" />
+          </div>
+          <div v-else class="products__empty empty">
+            <h1 class="empty__title">Товаров не найдено</h1>
           </div>
           <pagination-component
             :paginatedProduct="paginatedProduct"
@@ -32,7 +45,14 @@
         </div>
         <filters-component
           @filterOptions="filters"
-          @resetFilters="isProductFiltered = false"
+          @resetFilters="resetFilters"
+          :productOptions="productOptions"
+          :gameOptions="gameOptions"
+          :popularTags="popularTags"
+          :sortOptions="sortOptions"
+          :sortByPrice="true"
+          :sortByScripts="true"
+          :isProductFiltered="isProductFiltered"
         />
       </section>
     </template>
@@ -40,10 +60,11 @@
 </template>
 
 <script>
-import FiltersComponent from "../FiltersComponent.vue";
-import MainComponent from "../MainComponent.vue";
-import PaginationComponent from "../PaginationComponent.vue";
-import ProductComponent from "../ProductComponent.vue";
+import FiltersComponent from "../pages-components/FiltersComponent.vue";
+import MainComponent from "../pages-components/MainComponent.vue";
+import PaginationComponent from "../pages-components/PaginationComponent.vue";
+import ProductComponent from "../pages-components/ProductComponent.vue";
+import InputComponent from "../pages-components/UI/InputComponent.vue";
 export default {
   name: "MarketPage",
   components: {
@@ -51,6 +72,7 @@ export default {
     ProductComponent,
     PaginationComponent,
     FiltersComponent,
+    InputComponent,
   },
   data() {
     return {
@@ -59,6 +81,31 @@ export default {
       filterInput: "",
       allFilters: {},
       isProductFiltered: false,
+
+      sortOptions: [
+        { label: "Время загрузки" },
+        { label: "Количество покупок" },
+        { label: "Рейтинг" },
+      ],
+
+      productOptions: [{ label: "Все" }, { label: "Хз что тут писать" }],
+
+      gameOptions: [
+        { label: "Все" },
+        { label: "CS:GO" },
+        { label: "Not CS:GO" },
+      ],
+
+      popularTags: [
+        "hvh",
+        "legit",
+        "rage",
+        "lua",
+        "visual",
+        "free",
+        "gamesense",
+        "config",
+      ],
     };
   },
   mounted() {
@@ -1258,9 +1305,9 @@ export default {
     filteredByPrice() {
       const { minPrice, maxPrice } = this.allFilters;
       return this.productItemTypeFiltered.filter((item) => {
-        return maxPrice !== ""
-          ? item.price > minPrice && item.price < maxPrice
-          : item.price > minPrice;
+        return maxPrice.length
+          ? item.price >= minPrice && item.price <= maxPrice
+          : item.price >= minPrice;
       });
     },
     filteredByTags() {
@@ -1318,6 +1365,14 @@ export default {
     },
   },
   methods: {
+    setFilter(filter) {
+      this.filterInput = filter;
+    },
+    resetFilters() {
+      this.isProductFiltered = false;
+      this.$refs.inputFilter.inputValue = "";
+      this.filterInput = "";
+    },
     filteredBySort(array) {
       if (this.allFilters.sortBy === "Количество покупок") {
         return array.sort((a, b) => b.purchases - a.purchases);
@@ -1360,21 +1415,12 @@ export default {
 }
 
 .products__filter {
-  width: 100%;
   display: flex;
   flex-direction: row;
   margin-bottom: 24px;
 }
 .products__filter-input {
-  width: 100%;
-  border: none;
-  background: none;
-  outline: none;
-  background-color: #2b2b31;
   margin-right: 8px;
-  border-radius: 8px;
-  padding: 12px 16px;
-  color: #fff;
 }
 .products__filter-button {
   border: none;
@@ -1385,8 +1431,17 @@ export default {
 }
 
 .products__filter-button:hover {
+  opacity: 0.7;
   cursor: pointer;
-  opacity: 0.9;
+}
+
+.products__filter-button_bored {
+  background-color: #4b4f94;
+}
+
+.products__filter-button_bored:hover {
+  opacity: 1;
+  cursor: default;
 }
 
 .filter-button__logo {
@@ -1399,5 +1454,17 @@ export default {
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
+  width: 888px;
+}
+
+.products__empty {
+  width: 888px;
+}
+
+.empty {
+  width: 888px;
+  display: flex;
+  justify-content: center;
+  color: #2b2b31;
 }
 </style>

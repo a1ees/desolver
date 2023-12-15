@@ -1,14 +1,47 @@
 <template>
   <div v-if="paginatedProduct.length" class="market__pagination pagination">
     <button v-if="page > 1" @click="switchPage(1)" class="pagination__button">
-      &#60;&#60;
+      <svg
+        width="6"
+        height="9"
+        viewBox="0 0 6 9"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4.7135 8.54688L5.7135 7.54688L2.66663 4.5L5.7135 1.45312L4.7135 0.453125L0.666626 4.5L4.7135 8.54688Z"
+          fill="#87878E"
+        /></svg
+      ><svg
+        width="6"
+        height="9"
+        viewBox="0 0 6 9"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4.7135 8.54688L5.7135 7.54688L2.66663 4.5L5.7135 1.45312L4.7135 0.453125L0.666626 4.5L4.7135 8.54688Z"
+          fill="#87878E"
+        />
+      </svg>
     </button>
     <button
       v-if="page > 1"
       @click="switchPage(page - 1)"
       class="pagination__button"
     >
-      &#60;
+      <svg
+        width="6"
+        height="9"
+        viewBox="0 0 6 9"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4.7135 8.54688L5.7135 7.54688L2.66663 4.5L5.7135 1.45312L4.7135 0.453125L0.666626 4.5L4.7135 8.54688Z"
+          fill="#87878E"
+        />
+      </svg>
     </button>
     <button
       v-for="pageNumber in displayedPages"
@@ -40,14 +73,40 @@
       @click="switchPage(page + 1)"
       class="pagination__button"
     >
-      &#62;
+      <svg
+        width="6"
+        height="9"
+        viewBox="0 0 6 9"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1.16663 0.453125L0.166626 1.45312L3.2135 4.5L0.166626 7.54688L1.16663 8.54688L5.2135 4.5L1.16663 0.453125Z"
+          fill="#59595A"
+        />
+      </svg>
     </button>
     <button
       v-if="displayRecentItems"
       @click="switchPage(quantityPages)"
       class="pagination__button"
     >
-      &#62;&#62;
+      <svg
+        width="11"
+        height="9"
+        viewBox="0 0 11 9"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1 0L0 1L3.04687 4.04688L0 7.09375L1 8.09375L5.04688 4.04688L1 0Z"
+          fill="#59595A"
+        />
+        <path
+          d="M6 0L5 1L8.04687 4.04688L5 7.09375L6 8.09375L10.0469 4.04688L6 0Z"
+          fill="#59595A"
+        />
+      </svg>
     </button>
   </div>
 </template>

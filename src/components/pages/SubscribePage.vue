@@ -11,15 +11,24 @@
           >
             <p class="pay-section__days">{{ sub.days }}</p>
             <p class="pay-section__coast">{{ sub.cost }}</p>
-            <button
+            <default-button-component
               class="pay-section__button"
-              @click="extensionSub(sub.totalDays)"
-            >
-              Купить подписку
-            </button>
+              :textContent="'Купить подписку'"
+              @click="togglePaymentModal(sub)"
+            />
           </div>
         </div>
       </div>
+      <modal-payment
+        :selectSub="selectSub"
+        :isOpen="isOpenModalPayment"
+        @close="togglePaymentModal"
+        @confirmPay="extensionSub"
+      />
+      <modal-succesful-payment
+        @close="isOpenModalPaymentSuccess = false"
+        :isOpenModal="isOpenModalPaymentSuccess"
+      />
     </template>
   </main-component>
 </template>
@@ -27,16 +36,28 @@
 <script>
 import "../../assets/vendor/fonts/font.css";
 import "../../assets/vendor/normalize.css";
-import ProfileComponent from "../ProfileComponent.vue";
-import MainComponent from "../MainComponent.vue";
+import ProfileComponent from "../pages-components/ProfileComponent.vue";
+import MainComponent from "../pages-components/MainComponent.vue";
+import DefaultButtonComponent from "../pages-components/UI/DefaultButtonComponent.vue";
+import ModalPayment from "../pages-components/modals/ModalPayment.vue";
+import ModalSuccesfulPayment from "../pages-components/modals/ModalSuccesfulPayment.vue";
 
 export default {
-  components: { ProfileComponent, MainComponent },
+  components: {
+    ProfileComponent,
+    MainComponent,
+    DefaultButtonComponent,
+    ModalPayment,
+    ModalSuccesfulPayment,
+  },
   name: "SubscribePage",
   data() {
     return {
       subs: [],
       subDate: "",
+      selectSub: {},
+      isOpenModalPayment: false,
+      isOpenModalPaymentSuccess: false,
     };
   },
   computed: {
@@ -78,7 +99,16 @@ export default {
     this.subs = availableSubs;
   },
   methods: {
-    // ожидаемый формат даты('ДД.ММ.ГГГГ'), если данные не переданы(подписки нет) - счет идет от текущего времени
+    togglePaymentModal(sub) {
+      if (this.isOpenModalPayment) {
+        this.isOpenModalPayment = !this.isOpenModalPayment;
+        this.selectSub = {};
+      } else {
+        this.isOpenModalPayment = !this.isOpenModalPayment;
+        this.selectSub = sub;
+      }
+    },
+    // ожидаемый формат даты('ДД.ММ.ГГГГ'), если данные не переданы(подписки на аккаунте нет) - счет идет от текущего времени
     addDaysToDate(daysToAdd, inputDate) {
       let date;
 
@@ -122,9 +152,79 @@ export default {
       localStorage.setItem("user", JSON.stringify([user]));
       this.updateUsers(user);
       this.subDate = user.subscribe;
+      this.isOpenModalPayment = false;
+      this.isOpenModalPaymentSuccess = true;
     },
   },
 };
 </script>
 
-<style src="../../assets/styles/subscribe-page.css" scoped></style>
+<style scoped>
+.section__page-info {
+  margin: 72px 0px 205px 0px;
+}
+
+@media screen and (max-width: 956px) {
+  .section__page-info {
+    margin: 72px 0px 128px 0px;
+  }
+}
+
+.pay-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: max-content;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+}
+
+@media screen and (max-width: 956px) {
+  .pay-section {
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content;
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+  }
+}
+
+.pay-section__item {
+  padding: 24px;
+  background-color: #1a1a1e;
+  border-radius: 16px;
+}
+.pay-section__days {
+  padding: 0;
+  margin: 0px 0px 16px 0px;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 200;
+}
+
+@media screen and (max-width: 360px) {
+  .pay-section__days {
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+
+.pay-section__coast {
+  padding: 0;
+  margin: 0px 0px 74px 0px;
+  font-size: 36px;
+  line-height: 43px;
+  font-weight: 800;
+}
+
+@media screen and (max-width: 360px) {
+  .pay-section__coast {
+    font-size: 36px;
+    line-height: 38px;
+  }
+}
+
+@media screen and (max-width: 956px) {
+  .pay-section__coast {
+    margin: 0px 0px 40px 0px;
+  }
+}
+</style>

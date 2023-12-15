@@ -3,7 +3,7 @@
     <div class="custom__dropdown-selected" @click="toggleDropdown">
       {{ currentOption }}
       <img
-        src="../assets/images/logo/drop-down.svg"
+        src="../../assets/images/logo/drop-down.svg"
         alt=""
         class="custom__dropdown-image"
       />

@@ -15,11 +15,42 @@
 </template>
 
 <script>
-import MainComponent from "../MainComponent.vue";
+import MainComponent from "../pages-components/MainComponent.vue";
 export default {
   name: "SupportPage",
   components: { MainComponent },
 };
 </script>
 
-<style src="../../assets/styles/support-page.css" scoped></style>
+<style scoped>
+.support {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  margin: 0px 0px 100px 0px;
+}
+
+@media screen and (max-width: 340px) {
+  .support {
+    padding: 0px 20px;
+  }
+}
+
+.support__text {
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+  word-wrap: break-word;
+}
+.support__text-link {
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+  color: #828289;
+  word-wrap: break-word;
+}
+.support__link {
+  color: #b2b6ff;
+}
+</style>
