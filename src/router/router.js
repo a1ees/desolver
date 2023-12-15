@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 import MainPage from "../components/pages/MainPage.vue";
 import RegisterPage from "../components/pages/RegisterPage.vue";
 import AuthPage from "../components/pages/AuthPage.vue";
@@ -10,7 +10,7 @@ import MarketPage from "../components/pages/MarketPage.vue";
 import InventoryPage from "../components/pages/InventoryPage.vue";
 
 export default createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes: [
     { path: "/", component: MainPage },
     { path: "/register", component: RegisterPage },
