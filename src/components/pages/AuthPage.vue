@@ -5,6 +5,7 @@
         src="../../assets/images/logo/header-logo.svg"
         alt=""
         class="header__logo"
+        @click="this.$router.push('/')"
       />
     </header>
     <main class="content">
@@ -149,6 +150,11 @@ export default {
   width: 163px;
   height: 42px;
 }
+
+.header__logo:hover {
+  cursor: pointer;
+}
+
 .content {
   height: 100%;
   display: flex;

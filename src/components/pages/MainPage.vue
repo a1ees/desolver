@@ -27,6 +27,7 @@
           <default-button-component
             class="header__button header__button_burger"
             :textContent="'...'"
+            @click="isOpenButtonsModal = !isOpenButtonsModal"
           />
         </div>
       </header>
@@ -54,6 +55,7 @@
         <footer-component />
       </main>
     </div>
+    <modal-mobil-auth-buttons v-if="isOpenButtonsModal" />
   </div>
 </template>
 
@@ -62,11 +64,21 @@ import "../../assets/vendor/fonts/font.css";
 import "../../assets/vendor/normalize.css";
 import FooterComponent from "../pages-components/FooterComponent.vue";
 import DefaultButtonComponent from "../pages-components/UI/DefaultButtonComponent.vue";
+import ModalMobilAuthButtons from "../pages-components/modals/ModalMobilAuthButtons.vue";
 
 export default {
-  components: { FooterComponent, DefaultButtonComponent },
+  components: {
+    FooterComponent,
+    DefaultButtonComponent,
+    ModalMobilAuthButtons,
+  },
   name: "MainPage",
   methods: {},
+  data() {
+    return {
+      isOpenButtonsModal: false,
+    };
+  },
 };
 </script>
 

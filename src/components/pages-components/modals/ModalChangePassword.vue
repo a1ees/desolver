@@ -113,6 +113,7 @@ export default {
         localStorage.setItem("user", JSON.stringify([this.user]));
         localStorage.setItem("users", JSON.stringify(usersUpdate));
         this.$emit("close");
+        alert("Вы успешно сменили пароль");
       }
     },
   },

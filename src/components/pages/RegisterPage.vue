@@ -5,6 +5,7 @@
         src="../../assets/images/logo/header-logo.svg"
         alt="headerLogo"
         class="header__logo"
+        @click="this.$router.push('/')"
       />
     </header>
     <main class="content">
@@ -90,7 +91,7 @@ export default {
       errorText: "",
       allUsers: [],
       subscribe: null,
-      capcha: "SSA3YO"
+      capcha: "SSA3YO",
     };
   },
   mounted() {
@@ -202,6 +203,7 @@ export default {
         this.allUsers.push(newUser);
         localStorage.setItem("users", JSON.stringify(this.allUsers));
         this.clearForm();
+        this.$router.push("/login");
         alert("Вы успешно зарегистрировались!");
       }
     },
@@ -253,6 +255,10 @@ export default {
 .header__logo {
   width: 163px;
   height: 42px;
+}
+
+.header__logo:hover {
+  cursor: pointer;
 }
 
 .content {
