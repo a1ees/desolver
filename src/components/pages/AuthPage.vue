@@ -96,7 +96,7 @@ export default {
     recoveryPassword() {
       alert("Страница восстановления пароля в разработке");
     },
-    signin() {
+    signin(e) {
       const currentUser = this.allUsers.filter(
         (user) =>
           user.login === this.formData.login &&
@@ -109,6 +109,7 @@ export default {
       } else {
         this.showError = true;
       }
+      e.preventDefault();
     },
   },
 };
