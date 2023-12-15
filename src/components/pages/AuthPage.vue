@@ -11,7 +11,7 @@
     <main class="content">
       <div class="auth-form">
         <h1 class="auth-form__title">Авторизация</h1>
-        <form class="auth-form__form">
+        <form @submit.prevent="signin" class="auth-form__form">
           <input-component
             class="auth-form__input auth-form__input_login"
             :placeholder="'Логин'"
@@ -34,7 +34,7 @@
           </label>
           <default-button-component
             class="auth-form__submit-btn"
-            @click="signin"
+            type="submit"
             :textContent="'Войти'"
           />
         </form>
@@ -96,7 +96,7 @@ export default {
     recoveryPassword() {
       alert("Страница восстановления пароля в разработке");
     },
-    signin(e) {
+    signin() {
       const currentUser = this.allUsers.filter(
         (user) =>
           user.login === this.formData.login &&
@@ -109,7 +109,6 @@ export default {
       } else {
         this.showError = true;
       }
-      e.preventDefault();
     },
   },
 };

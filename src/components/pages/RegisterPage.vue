@@ -11,7 +11,7 @@
     <main class="content">
       <div class="register-form">
         <h1 class="register-form__title">Регистрация</h1>
-        <form class="register-form__form">
+        <form @submit.prevent="createUser" class="register-form__form">
           <input-component
             class="register-form__input register-form__input_login"
             :placeholder="'Логин'"
@@ -48,7 +48,7 @@
           </div>
           <default-button-component
             class="register-form__submit-btn"
-            @click="createUser"
+            type="submit"
             :textContent="'Создать аккаунт'"
           />
         </form>
