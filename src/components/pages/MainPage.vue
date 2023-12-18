@@ -211,10 +211,7 @@ export default {
   font-size: 16px;
   line-height: 19px;
   color: #121214;
-}
-
-.header__button:not(:last-child) {
-  margin-right: 10px;
+  gap: 10px;
 }
 
 .header__button_burger {

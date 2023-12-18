@@ -254,6 +254,7 @@ export default {
 .registration-date {
   display: flex;
   flex-direction: column;
+  gap: 8px;
 }
 
 @media screen and (max-width: 500px) {
@@ -264,7 +265,7 @@ export default {
 
 .registration-date__text {
   padding: 0;
-  margin: 0px 0px 8px 0px;
+  margin: 0;
   color: #fff;
   font-size: 20px;
   line-height: 24px;

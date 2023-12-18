@@ -154,6 +154,7 @@ export default {
 
 .footer__contacts {
   display: flex;
+  gap: 180px;
 }
 
 @media screen and (max-width: 1420px) {
@@ -172,25 +173,21 @@ export default {
   }
 }
 
-.footer__contact:not(:last-child) {
-  margin-right: 180px;
-}
-
 @media screen and (max-width: 740px) {
-  .footer__contact:not(:last-child) {
-    margin-right: 136px;
+  .footer__contacts {
+    gap: 136px;
   }
 }
 
 @media screen and (max-width: 712px) {
-  .footer__contact:not(:last-child) {
-    margin-right: 110px;
+  .footer__contacts {
+    gap: 110px;
   }
 }
 
 @media screen and (max-width: 580px) {
-  .footer__contact:not(:last-child) {
-    margin-bottom: 48px;
+  .footer__contacts {
+    gap: 48px;
   }
 }
 
@@ -225,6 +222,7 @@ export default {
 .footer__social {
   display: flex;
   justify-content: flex-end;
+  gap: 20px;
 }
 
 @media screen and (max-width: 1420px) {
@@ -251,10 +249,6 @@ export default {
   height: 24px;
   background: no-repeat;
   background-position: center;
-}
-
-.social__icon:not(:last-child) {
-  margin-right: 20px;
 }
 .social__icon_discord {
   background-image: url("../../assets/images/logo/discord-logo.svg");
@@ -320,15 +314,12 @@ export default {
 
 .copyright__icons {
   display: flex;
+  gap: 20px;
 }
 
 .copyright__icon_language-selector:hover {
   cursor: pointer;
   opacity: 0.9;
-}
-
-.copyright__icon:not(:last-child) {
-  margin-right: 20px;
 }
 
 @media screen and (max-width: 360px) {

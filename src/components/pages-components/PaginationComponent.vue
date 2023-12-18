@@ -154,6 +154,7 @@ export default {
   margin-top: 24px;
   display: flex;
   justify-content: center;
+  gap: 16px;
 }
 
 .pagination__button {
@@ -164,10 +165,6 @@ export default {
   height: 43px;
   color: #59595a;
   background-color: #19191d;
-}
-
-.pagination__button:not(:last-child) {
-  margin-right: 16px;
 }
 
 .pagination__button:hover {

@@ -1418,9 +1418,9 @@ export default {
   display: flex;
   flex-direction: row;
   margin-bottom: 24px;
+  gap: 8px;
 }
 .products__filter-input {
-  margin-right: 8px;
 }
 .products__filter-button {
   border: none;

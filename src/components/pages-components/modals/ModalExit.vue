@@ -81,21 +81,12 @@ export default {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  gap: 16px;
 }
 
 @media screen and (max-width: 450px) {
   .modal__buttons {
     flex-direction: column;
-  }
-}
-
-.modal__button:not(:last-child) {
-  margin-right: 16px;
-}
-
-@media screen and (max-width: 450px) {
-  .modal__button:not(:last-child) {
-    margin: 0px 0px 16px 0px;
   }
 }
 </style>

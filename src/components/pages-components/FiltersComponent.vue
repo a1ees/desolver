@@ -207,6 +207,7 @@ export default {
   max-width: calc(396px - 24px - 24px);
   margin-left: 48px;
   height: 100%;
+  gap: 24px;
 }
 
 .filters__buttons {
@@ -255,15 +256,12 @@ export default {
   line-height: 24px;
   font-weight: 400;
   padding: 0;
-  margin: 24px 0px 12px 0px;
+  margin: 0px 0px 12px 0px;
 }
 
 .filters__inputs {
   display: flex;
-}
-
-.filters__price-item:not(:last-child) {
-  margin-right: 12px;
+  gap: 12px;
 }
 
 .filters__tags {
