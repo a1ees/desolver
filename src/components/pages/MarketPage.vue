@@ -15,19 +15,7 @@
               :class="{ 'products__filter-button_bored': isProductFiltered }"
               @click="searchProduct"
             >
-              <svg
-                class="filter-button__logo"
-                width="19"
-                height="19"
-                viewBox="0 0 19 19"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8.35458 15.1245C9.85689 15.1241 11.3159 14.6212 12.4993 13.6958L16.22 17.4163L17.4168 16.2196L13.6961 12.4991C14.6221 11.3156 15.1253 9.85635 15.1257 8.35373C15.1257 4.62052 12.088 1.58301 8.35458 1.58301C4.62117 1.58301 1.5835 4.62052 1.5835 8.35373C1.5835 12.0869 4.62117 15.1245 8.35458 15.1245ZM8.35458 3.27569C11.1553 3.27569 13.4329 5.55319 13.4329 8.35373C13.4329 11.1543 11.1553 13.4318 8.35458 13.4318C5.55389 13.4318 3.27627 11.1543 3.27627 8.35373C3.27627 5.55319 5.55389 3.27569 8.35458 3.27569Z"
-                  fill="#121214"
-                />
-              </svg>
+              <search-icon />
             </button>
           </div>
           <div v-if="paginatedProduct.length" class="products__items">
@@ -65,9 +53,11 @@ import MainComponent from "../pages-components/MainComponent.vue";
 import PaginationComponent from "../pages-components/PaginationComponent.vue";
 import ProductComponent from "../pages-components/ProductComponent.vue";
 import InputComponent from "../pages-components/UI/InputComponent.vue";
+import SearchIcon from "@/components/icons/SearchIcon.vue";
 export default {
   name: "MarketPage",
   components: {
+    SearchIcon,
     MainComponent,
     ProductComponent,
     PaginationComponent,
@@ -1442,11 +1432,6 @@ export default {
 .products__filter-button_bored:hover {
   opacity: 1;
   cursor: default;
-}
-
-.filter-button__logo {
-  height: 16px;
-  width: 16px;
 }
 
 .products__items {

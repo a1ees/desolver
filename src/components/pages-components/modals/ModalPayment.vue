@@ -9,20 +9,7 @@
               {{ transformSub.days }}
             </h1>
             <button class="modal__close-button" @click="closeModal">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 17"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M6.01761 8.5L0 2.48239L1.98239 0.5L8 6.51761L14.0176 0.5L16 2.48239L9.98239 8.5L16 14.5176L14.0176 16.5L8 10.4824L1.98239 16.5L0 14.5176L6.01761 8.5Z"
-                  fill="white"
-                />
-              </svg>
+              <close-modal-icon />
             </button>
           </div>
           <div class="modal__info">
@@ -69,8 +56,10 @@ import DarkButton from "../UI/DarkButton.vue";
 import DefaultButtonComponent from "../UI/DefaultButtonComponent.vue";
 import InputComponent from "../UI/InputComponent.vue";
 import ModalComponent from "./ModalComponent.vue";
+import CloseModalIcon from "@/components/icons/CloseModalIcon.vue";
 export default {
   components: {
+    CloseModalIcon,
     InputComponent,
     ModalComponent,
     DefaultButtonComponent,

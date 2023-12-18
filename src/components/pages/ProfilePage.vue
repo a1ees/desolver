@@ -6,11 +6,7 @@
         <h1 v-if="subscribe" class="section__page-title">Desolver 1.0</h1>
         <div v-if="subscribe" class="section__page-info">
           <div class="section__page-suppsystem suppsystem">
-            <img
-              src="../../assets/images/logo/windows-icon.svg"
-              alt="icon"
-              class="suppsystem__icon"
-            />
+            <windows-icon />
             <p class="suppsystem__text">XP, Vista, 7, 8, 10</p>
           </div>
           <p class="section__page-text">
@@ -24,22 +20,7 @@
           </p>
           <button class="section__page-button">
             <div class="section__page-button-content">
-              <svg
-                class="section__page-button-icon"
-                width="13"
-                height="19"
-                viewBox="0 0 13 19"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M5.09987 12.4597L5.09987 0L7.89987 0L7.89987 12.4597L10.4785 9.70915L12.5212 11.6242L6.49987 18.047L0.478516 11.6242L2.52122 9.70915L5.09987 12.4597Z"
-                  fill="white"
-                />
-              </svg>
-
+              <download-icon class="section__page-button-icon" />
               <p class="section__page-button-text">Загрузить</p>
             </div>
           </button>
@@ -65,9 +46,13 @@ import "../../assets/vendor/fonts/font.css";
 import "../../assets/vendor/normalize.css";
 import MainComponent from "../pages-components/MainComponent.vue";
 import ProfileComponent from "../pages-components/ProfileComponent.vue";
+import WindowsIcon from "@/components/icons/WindowsIcon.vue";
+import DownloadIcon from "@/components/icons/DownloadIcon.vue";
 
 export default {
   components: {
+    DownloadIcon,
+    WindowsIcon,
     MainComponent,
     ProfileComponent,
   },
@@ -106,7 +91,7 @@ export default {
   }
 }
 .section__page-title {
-  padding: 0px 0px 4px 0px;
+  padding: 0 0 4px 0;
   margin: 0;
   font-size: 48px;
   line-height: 57px;
@@ -168,11 +153,7 @@ export default {
   justify-content: center;
   align-items: center;
   margin-bottom: 32px;
-}
-.suppsystem__icon {
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
+  gap: 8px;
 }
 .suppsystem__text {
   padding: 0;
@@ -203,18 +184,10 @@ export default {
   transition: background-color 0.3s, color 0.3s;
 }
 
-.section__page-button .section__page-button-icon path {
-  transition: fill 0.3s;
-}
-
 .section__page-button:hover {
   cursor: pointer;
   color: #121214;
   background-color: #fff;
-}
-
-.section__page-button:hover .section__page-button-icon path {
-  fill: #121214;
 }
 
 .section__page-button-content {
