@@ -21,7 +21,6 @@
       <p class="header__login">{{ login }}</p>
       <div class="header__navigate">
         <default-button-component
-          :textContent="''"
           class="header__navigate-button"
           @click.stop="toggleNavBar"
         />

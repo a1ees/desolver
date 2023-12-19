@@ -6,20 +6,17 @@
         subDate ? subDate : subscribe
       }}</span>
     </p>
-    <button class="subscribe__renew-button" @click="$router.push('/subscribe')">
+    <black-button @click="$router.push('/subscribe')">
       Продлить подписку
-    </button>
+    </black-button>
   </div>
   <div v-else class="section__subscribe-inactive subscribe-inactive">
     <p class="subscribe__date-inactive subscribe__date_text-inactive">
       Подписка неактивна
     </p>
-    <button
-      class="subscribe__renew-button-inactive"
-      @click="$router.push('/subscribe')"
-    >
+    <black-button :inactive="true" @click="$router.push('/subscribe')">
       Купить подписку
-    </button>
+    </black-button>
   </div>
   <div class="section__user-info">
     <div class="section__profile profile">
@@ -41,8 +38,11 @@
 </template>
 
 <script>
+import BlackButton from "@/components/pages-components/UI/BlackButton.vue";
+
 export default {
   name: "ProfileComponent",
+  components: { BlackButton },
   props: {
     subDate: {
       type: String,
@@ -112,30 +112,6 @@ export default {
   }
 }
 
-.subscribe__renew-button {
-  color: #fff;
-  background-color: #121214;
-  padding: 12px 24px;
-  font-size: 16px;
-  line-height: 19px;
-  border: none;
-  border-radius: 8px;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.subscribe__renew-button:hover {
-  cursor: pointer;
-  background-color: #1a1a1e;
-}
-
-@media screen and (max-width: 500px) {
-  .subscribe__renew-button {
-    padding: 12px 78px;
-    font-size: 14px;
-    line-height: 17px;
-  }
-}
-
 .subscribe-inactive {
   display: flex;
   justify-content: space-between;
@@ -174,28 +150,6 @@ export default {
     margin-bottom: 8px;
     font-size: 16px;
     line-height: 19px;
-  }
-}
-
-.subscribe__renew-button-inactive {
-  color: #fff;
-  background-color: #121214;
-  padding: 12px 24px;
-  font-size: 16px;
-  line-height: 19px;
-  border: none;
-  border-radius: 8px;
-}
-
-.subscribe__renew-button-inactive:hover {
-  cursor: pointer;
-}
-
-@media screen and (max-width: 500px) {
-  .subscribe__renew-button-inactive {
-    padding: 12px 78px;
-    font-size: 14px;
-    line-height: 17px;
   }
 }
 

@@ -5,33 +5,27 @@
       <div class="section__page-info page-info">
         <div class="page-info__settings settings">
           <div class="settings__element-settings settings__element_password">
-            <button
-              @click="isOpenModalChangePassword = true"
-              class="setting__element-button"
+            <white-border-button @click="isOpenModalChangePassword = true"
+              >Сменить пароль</white-border-button
             >
-              Сменить пароль
-            </button>
             <p class="setting__element-text">Смена вашего пароля на новый</p>
           </div>
           <div class="settings__element settings__element_discord">
-            <button class="setting__element-button">Привязать Discord</button>
+            <white-border-button>Привязать Discord</white-border-button>
             <p class="setting__element-text">
               Привязка учетной записи к Discord
             </p>
           </div>
           <div class="settings__element settings__element_hwid">
-            <button class="setting__element-button">Сбросить HWID</button>
+            <white-border-button>Сбросить HWID</white-border-button>
             <p class="setting__element-text">
               Сброс идентификатора устройства раз в 12 часов
             </p>
           </div>
           <div class="settings__element settings__element_two-factor">
-            <button
-              @click="isOpenModalTwoFactor = true"
-              class="setting__element-button"
+            <white-border-button @click="isOpenModalTwoFactor = true"
+              >Включить двухфакторную аутентификацию</white-border-button
             >
-              Включить двухфакторную аутентификацию
-            </button>
           </div>
         </div>
       </div>
@@ -60,10 +54,12 @@ import MainComponent from "../pages-components/MainComponent.vue";
 import ModalTwoFactor from "../pages-components/modals/ModalTwoFactor.vue";
 import ModalTwoFactorAuth from "../pages-components/modals/ModalTwoFactorAuth.vue";
 import ModalChangePassword from "../pages-components/modals/ModalChangePassword.vue";
+import WhiteBorderButton from "@/components/pages-components/UI/WhiteBorderButton.vue";
 
 export default {
   name: "SettingsPage",
   components: {
+    WhiteBorderButton,
     ProfileComponent,
     MainComponent,
     ModalTwoFactor,
@@ -130,21 +126,6 @@ export default {
 
 .settings__element_password {
   grid-area: password;
-}
-.setting__element-button {
-  all: unset;
-  border: 2px solid #fff;
-  border-radius: 96px;
-  width: 100%;
-  text-align: center;
-  padding: 20px 0px;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.setting__element-button:hover {
-  cursor: pointer;
-  color: #121214;
-  background-color: #fff;
 }
 
 .setting__element-text {

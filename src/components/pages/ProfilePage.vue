@@ -18,12 +18,12 @@
               >Visual C++ 15 x64.</a
             >
           </p>
-          <button class="section__page-button">
+          <white-border-button class="section__page-button">
             <div class="section__page-button-content">
               <download-icon class="section__page-button-icon" />
               <p class="section__page-button-text">Загрузить</p>
             </div>
-          </button>
+          </white-border-button>
         </div>
         <div v-else>
           <div class="section__page-unsub page-unsub">
@@ -48,9 +48,11 @@ import MainComponent from "../pages-components/MainComponent.vue";
 import ProfileComponent from "../pages-components/ProfileComponent.vue";
 import WindowsIcon from "@/components/icons/WindowsIcon.vue";
 import DownloadIcon from "@/components/icons/DownloadIcon.vue";
+import WhiteBorderButton from "@/components/pages-components/UI/WhiteBorderButton.vue";
 
 export default {
   components: {
+    WhiteBorderButton,
     DownloadIcon,
     WindowsIcon,
     MainComponent,
@@ -176,42 +178,27 @@ export default {
 .section__page-link {
   color: #b2b6ff;
 }
+
 .section__page-button {
-  all: unset;
-  border: 2px solid #fff;
-  border-radius: 96px;
-  z-index: 10;
-  transition: background-color 0.3s, color 0.3s;
+  max-width: 752px;
+  padding: 32px 0;
 }
 
-.section__page-button:hover {
-  cursor: pointer;
-  color: #121214;
-  background-color: #fff;
-}
-
-.section__page-button-content {
-  padding: 32px 305px;
-  display: flex;
-  justify-content: center;
-}
-
-@media screen and (max-width: 1200px) {
-  .section__page-button-content {
-    padding: 32px 257px;
-  }
-}
-
-@media screen and (max-width: 708px) {
-  .section__page-button-content {
-    padding: 32px 122px;
+@media screen and (max-width: 1440px) {
+  .section__page-button {
+    max-width: 656px;
   }
 }
 
 @media screen and (max-width: 360px) {
-  .section__page-button-content {
-    padding: 32px 100px;
+  .section__page-button {
+    max-width: 328px;
   }
+}
+
+.section__page-button-content {
+  display: flex;
+  justify-content: center;
 }
 
 .section__page-button-icon {

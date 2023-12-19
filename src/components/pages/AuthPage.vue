@@ -32,11 +32,9 @@
             <label for="checkbox" class="auth-form__checkbox-label"></label>
             <p class="auth-form__checkbox-text">Запомнить меня</p>
           </label>
-          <default-button-component
-            class="auth-form__submit-btn"
-            type="submit"
-            :textContent="'Войти'"
-          />
+          <default-button-component class="auth-form__submit-btn" type="submit">
+            Войти
+          </default-button-component>
         </form>
         <div class="auth-form__navlink">
           <button

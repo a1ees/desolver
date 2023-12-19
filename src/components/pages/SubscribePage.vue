@@ -13,9 +13,10 @@
             <p class="pay-section__coast">{{ sub.cost }}</p>
             <default-button-component
               class="pay-section__button"
-              :textContent="'Купить подписку'"
               @click="togglePaymentModal(sub)"
-            />
+            >
+              Купить подписку
+            </default-button-component>
           </div>
         </div>
       </div>

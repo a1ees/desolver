@@ -24,9 +24,10 @@
                     'payment-method__button_select':
                       selectedPaymentMethod === method,
                   }"
-                  :textContent="method"
                   @click="selectPaymentMethod(method)"
-                />
+                >
+                  {{ method }}
+                </dark-button>
               </div>
             </div>
             <div class="modal__payment payment">
@@ -40,10 +41,9 @@
                 />
                 <p class="payment__login">{{ userName }}</p>
               </div>
-              <default-button-component
-                @click="confirmPay"
-                :textContent="`Оплатить ${transformSub.cost}`"
-              />
+              <default-button-component @click="confirmPay">
+                Оплатить {{ transformSub.cost }}
+              </default-button-component>
             </div>
           </div>
         </div>

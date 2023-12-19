@@ -16,19 +16,22 @@
         <div class="header__buttons">
           <default-button-component
             class="header__button header__button_autoriz"
-            :textContent="'Авторизация'"
             @click="$router.push('/login')"
-          />
+          >
+            Авторизация
+          </default-button-component>
           <default-button-component
             class="header__button header__button_reg"
-            :textContent="'Регистрация'"
             @click="$router.push('/register')"
-          />
+          >
+            Регистрация
+          </default-button-component>
           <default-button-component
             class="header__button header__button_burger"
-            :textContent="'...'"
             @click="isOpenButtonsModal = !isOpenButtonsModal"
-          />
+          >
+            ...
+          </default-button-component>
         </div>
       </header>
       <main class="content">

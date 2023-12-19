@@ -11,14 +11,13 @@
           </p>
           <default-button-component
             class="modal__button"
-            :textContent="'Попробовать ещё раз'"
             @click="this.$emit('close')"
-          />
-          <dark-button
-            @click="this.$emit('close')"
-            class="modal__button"
-            :textContent="'Отмена'"
-          />
+          >
+            Попробовать ещё раз
+          </default-button-component>
+          <dark-button @click="this.$emit('close')" class="modal__button">
+            Отмена
+          </dark-button>
         </div>
       </div>
     </template>

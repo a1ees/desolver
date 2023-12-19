@@ -42,9 +42,10 @@
             <input-component :placeholder="'000 000'" class="modal__input" />
             <default-button-component
               class="modal__button"
-              :textContent="'Подключить'"
               @click="this.$emit('close')"
-            />
+            >
+              Подключить
+            </default-button-component>
           </div>
         </div>
       </div>

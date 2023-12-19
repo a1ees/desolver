@@ -1,25 +1,13 @@
 <template>
-  <button class="button">{{ textContent }}</button>
+  <button class="button"><slot></slot></button>
 </template>
-
-<script>
-export default {
-  props: {
-    textContent: {
-      type: String,
-      required: true,
-    },
-  },
-};
-</script>
 
 <style scoped>
 .button {
   width: 100%;
   border: none;
-  background: none;
   text-align: center;
-  background-color: #b2b6ff;
+  background: #b2b6ff none;
   font-size: 16px;
   line-height: 19px;
   padding: 12px 24px;

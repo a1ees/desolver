@@ -2,14 +2,16 @@
   <div class="buttons">
     <default-button-component
       class="button button_autoriz"
-      :textContent="'Авторизация'"
       @click="$router.push('/login')"
-    />
+    >
+      Авторизация
+    </default-button-component>
     <default-button-component
       class="button button_reg"
-      :textContent="'Регистрация'"
       @click="$router.push('/register')"
-    />
+    >
+      Регистрация
+    </default-button-component>
   </div>
 </template>
 

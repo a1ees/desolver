@@ -25,7 +25,7 @@
           <p class="products__rank-num">{{ product.rating }}</p>
         </div>
       </div>
-      <dark-button :textContent="`Купить за ${product.price}₽`" />
+      <dark-button>Купить за {{ product.price }}₽</dark-button>
     </div>
   </div>
 </template>

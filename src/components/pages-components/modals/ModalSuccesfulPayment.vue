@@ -11,9 +11,10 @@
           </p>
           <default-button-component
             class="modal__button"
-            :textContent="'Отлично'"
             @click="this.$emit('close')"
-          />
+          >
+            Отлично
+          </default-button-component>
         </div>
       </div>
     </template>
@@ -23,7 +24,7 @@
 <script>
 import DefaultButtonComponent from "../UI/DefaultButtonComponent.vue";
 import ModalComponent from "./ModalComponent.vue";
-import SuccesPaymentIcon from "@/components/icons/SuccesPaymentIcon.vue";
+import SuccesPaymentIcon from "@/components/icons/SuccessPaymentIcon.vue";
 export default {
   components: {
     SuccesPaymentIcon,
@@ -65,16 +66,14 @@ export default {
 }
 .modal__title {
   padding: 0;
-  margin: 0;
-  margin-bottom: 8px;
+  margin: 0 0 8px;
   color: #b2b6ff;
   font-size: 24px;
   line-height: 29px;
 }
 .modal__text {
   padding: 0;
-  margin: 0;
-  margin-bottom: 24px;
+  margin: 0 0 24px;
   text-align: center;
   font-size: 16px;
   line-height: 19px;

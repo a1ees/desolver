@@ -24,26 +24,18 @@
           </div>
         </div>
         <div class="items__product-buttons product-buttons">
-          <dark-button
-            v-if="item.removeButton"
-            :textContent="item.removeButton"
-            class="product-buttons__button"
-          />
-          <dark-button
-            v-if="item.addButton"
-            :textContent="item.addButton"
-            class="product-buttons__button"
-          />
-          <dark-button
-            v-if="item.postButton"
-            :textContent="item.postButton"
-            class="product-buttons__button"
-          />
-          <dark-button
-            v-if="item.marketButton"
-            :textContent="item.marketButton"
-            class="product-buttons__button"
-          />
+          <dark-button v-if="item.removeButton" class="product-buttons__button">
+            {{ item.removeButton }}
+          </dark-button>
+          <dark-button v-if="item.addButton" class="product-buttons__button">
+            {{ item.addButton }}
+          </dark-button>
+          <dark-button v-if="item.postButton" class="product-buttons__button">
+            {{ item.postButton }}
+          </dark-button>
+          <dark-button v-if="item.marketButton" class="product-buttons__button">
+            {{ item.marketButton }}
+          </dark-button>
         </div>
       </div>
     </div>
@@ -53,13 +45,14 @@
     ></div>
     <dark-button
       @click="showMore"
-      :textContent="'Показать больше'"
       class="items__products-button"
       :class="{
         'items__products-button_show':
           showMoreButton && maxElementsOnItems < items.length,
       }"
-    />
+    >
+      Показать больше
+    </dark-button>
   </div>
 </template>
 

@@ -29,9 +29,10 @@
           />
           <default-button-component
             class="modal__button"
-            :textContent="'Сменить пароль'"
             @click="changePassword"
-          />
+          >
+            Сменить пароль
+          </default-button-component>
           <span v-if="errorText.length" class="modal__error">{{
             errorText
           }}</span>

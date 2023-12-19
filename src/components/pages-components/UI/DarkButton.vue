@@ -1,17 +1,6 @@
 <template>
-  <button class="dark__button">{{ textContent }}</button>
+  <button class="dark__button"><slot></slot></button>
 </template>
-
-<script>
-export default {
-  props: {
-    textContent: {
-      type: String,
-      required: true,
-    },
-  },
-};
-</script>
 
 <style scoped>
 .dark__button {

@@ -7,14 +7,13 @@
           <div class="modal__buttons">
             <default-button-component
               class="modal__button"
-              :textContent="'Подключить'"
               @click="this.$emit('plug')"
-            />
-            <dark-button
-              @click="this.$emit('skip')"
-              class="modal__button"
-              :textContent="'Пропустить'"
-            />
+            >
+              Подключить
+            </default-button-component>
+            <dark-button @click="this.$emit('skip')" class="modal__button">
+              Пропустить
+            </dark-button>
           </div>
         </div>
       </div>

@@ -49,8 +49,9 @@
           <default-button-component
             class="register-form__submit-btn"
             type="submit"
-            :textContent="'Создать аккаунт'"
-          />
+          >
+            Создать аккаунт
+          </default-button-component>
         </form>
         <p class="register-form__signin">
           Уже есть аккаунт?

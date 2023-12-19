@@ -10,13 +10,13 @@
               @input="setFilter"
               ref="inputFilter"
             />
-            <button
+            <default-button-component
               class="products__filter-button filter-button"
               :class="{ 'products__filter-button_bored': isProductFiltered }"
               @click="searchProduct"
             >
               <search-icon />
-            </button>
+            </default-button-component>
           </div>
           <div v-if="paginatedProduct.length" class="products__items">
             <product-component :paginatedProduct="paginatedProduct" />
@@ -54,9 +54,11 @@ import PaginationComponent from "../pages-components/PaginationComponent.vue";
 import ProductComponent from "../pages-components/ProductComponent.vue";
 import InputComponent from "../pages-components/UI/InputComponent.vue";
 import SearchIcon from "@/components/icons/SearchIcon.vue";
+import DefaultButtonComponent from "@/components/pages-components/UI/DefaultButtonComponent.vue";
 export default {
   name: "MarketPage",
   components: {
+    DefaultButtonComponent,
     SearchIcon,
     MainComponent,
     ProductComponent,
@@ -1328,12 +1330,12 @@ export default {
         const inAuthorFiltered = this.filteredByAuthor.includes(item);
         const inPriceFiltered = this.filteredByPrice.includes(item);
         const inTagsFiltered = this.filteredByTags.includes(item);
-        const inGameFilteres = this.filteredByGame.includes(item);
+        const inGameFiltered = this.filteredByGame.includes(item);
         return (
           (inAuthorFiltered || inNameFiltered) &&
           inTagsFiltered &&
           inPriceFiltered &&
-          inGameFilteres
+          inGameFiltered
         );
       });
       return this.filteredBySort(addFilters);
@@ -1410,28 +1412,8 @@ export default {
   margin-bottom: 24px;
   gap: 8px;
 }
-.products__filter-input {
-}
 .products__filter-button {
-  border: none;
-  background: none;
-  background-color: #b2b6ff;
-  border-radius: 8px;
-  padding: 12px 24px;
-}
-
-.products__filter-button:hover {
-  opacity: 0.7;
-  cursor: pointer;
-}
-
-.products__filter-button_bored {
-  background-color: #4b4f94;
-}
-
-.products__filter-button_bored:hover {
-  opacity: 1;
-  cursor: default;
+  max-width: 67px;
 }
 
 .products__items {

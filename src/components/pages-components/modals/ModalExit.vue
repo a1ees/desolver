@@ -7,14 +7,13 @@
           <div class="modal__buttons">
             <default-button-component
               class="modal__button"
-              :textContent="'Нет, отмена'"
               @click="this.$emit('noExit')"
-            />
-            <dark-button
-              @click="this.$emit('exit')"
-              class="modal__button"
-              :textContent="'Да, выйти'"
-            />
+            >
+              Нет, отмена
+            </default-button-component>
+            <dark-button @click="this.$emit('exit')" class="modal__button">
+              Да, выйти
+            </dark-button>
           </div>
         </div>
       </div>
@@ -64,8 +63,7 @@ export default {
 
 .modal__title {
   padding: 0;
-  margin: 0;
-  margin-bottom: 24px;
+  margin: 0 0 24px;
   font-size: 24px;
   line-height: 29px;
 }
