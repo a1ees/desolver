@@ -56,7 +56,6 @@ export default {
   width: 100%;
   color: #fff;
   z-index: 1;
-  overflow: hidden;
 }
 
 .page__container {
@@ -106,91 +105,6 @@ export default {
     padding: 0px 16px;
   }
 }
-/*-----------------------*/
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 32px;
-  margin-bottom: 65px;
-}
-
-@media screen and (max-width: 1440px) {
-  .header {
-    padding: 32px 72px 0px 72px;
-  }
-}
-
-@media screen and (max-width: 900px) {
-  .header {
-    padding: 32px 0px 0px 0px;
-  }
-}
-
-.header__logo {
-  display: none;
-}
-.header__logo-full {
-  display: block;
-  width: 163px;
-  height: 42px;
-}
-
-@media screen and (max-width: 450px) {
-  .header__logo-full {
-    display: none;
-  }
-  .header__logo {
-    display: block;
-    width: 27px;
-    height: 42px;
-  }
-}
-
-.header__profile {
-  display: flex;
-  align-items: center;
-}
-.header__avatar {
-  width: 32px;
-  height: 32px;
-  margin-right: 12px;
-}
-.header__login {
-  color: #828289;
-  font-size: 20px;
-  line-height: 24px;
-  padding: 0;
-  margin: 0;
-}
-
-@media screen and (max-width: 1260px) {
-  .header__login {
-    margin-right: 24px;
-  }
-}
-
-.header__button {
-  display: none;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 16px 32px;
-  border-radius: 6px;
-  background-image: url("../../assets/images/logo/burger.svg");
-  background-repeat: no-repeat;
-  background-size: 20px 20px;
-  background-position: center;
-  background-color: #b2b6ff;
-}
-
-@media screen and (max-width: 1260px) {
-  .header__button {
-    display: block;
-  }
-}
-
-/*-----------------------*/
 
 .content {
   display: flex;
@@ -205,19 +119,21 @@ export default {
 /*-----------------------*/
 
 .content__section {
-  min-width: 888px;
-  padding-right: 72px;
+  max-width: 888px;
+  width: 100%;
 }
 
 @media screen and (max-width: 1440px) {
   .content__section {
-    min-width: 923px;
+    max-width: 923px;
+    width: 100%;
   }
 }
 
 @media screen and (max-width: 1420px) {
   .content__section {
-    min-width: 704px;
+    max-width: 704px;
+    width: 100%;
   }
 }
 
@@ -229,13 +145,15 @@ export default {
 
 @media screen and (max-width: 708px) {
   .content__section {
-    min-width: 500px;
+    max-width: 500px;
+    width: 100%;
   }
 }
 
 @media screen and (max-width: 500px) {
   .content__section {
-    min-width: 328px;
+    max-width: 328px;
+    width: 100%;
   }
 }
 </style>

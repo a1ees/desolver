@@ -62,6 +62,8 @@ export default {
   border-radius: 8px;
   overflow: hidden;
   background-color: #151518;
+  max-width: 288px;
+  width: 100%;
 }
 .products__image {
   height: 110px;

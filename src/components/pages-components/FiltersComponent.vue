@@ -187,9 +187,9 @@ export default {
   background-color: #151518;
   display: flex;
   flex-direction: column;
-  max-width: calc(396px - 24px - 24px);
   margin-left: 48px;
   height: 100%;
+  width: 100%;
   gap: 24px;
 }
 
@@ -264,6 +264,7 @@ export default {
   color: #8c8e94;
   border-radius: 60px;
   padding: 8px 18px;
+  transition: background-color 0.4s ease;
 }
 
 .filters__tags-item:hover {
@@ -273,5 +274,6 @@ export default {
 .filters__tags-item_select {
   background-color: #b2b6ff;
   color: #121214;
+  transition: background-color 0.4s ease;
 }
 </style>
