@@ -27,13 +27,11 @@
           class="filters__price-item"
           :placeholder="'От 0₽'"
           @input="setMinPrice"
-          ref="inputMinPrice"
         />
         <input-component
           class="filters__price-item"
           :placeholder="'До 10000₽'"
           @input="setMaxPrice"
-          ref="inputMaxPrice"
         />
       </div>
     </div>
@@ -77,13 +75,6 @@
         </button>
       </div>
     </div>
-    <button
-      v-if="isProductFiltered"
-      class="filters__reset"
-      @click="resetFilters"
-    >
-      Сбросить фильтры
-    </button>
   </div>
 </template>
 
@@ -119,10 +110,6 @@ export default {
       type: Boolean,
       default: () => false,
     },
-    isProductFiltered: {
-      type: Boolean,
-      default: () => false,
-    },
   },
   data() {
     return {
@@ -143,27 +130,23 @@ export default {
     this.$emit("filterOptions", this.filterOptions);
   },
   methods: {
+    setTimeoutPrice(callback) {
+      if (this.timeOutPrice) {
+        clearTimeout(this.timeOutPrice);
+      }
+      this.timeOutPrice = setTimeout(() => {
+        callback();
+      }, 1000);
+    },
     setMinPrice(minPrice) {
-      this.filterOptions.minPrice = minPrice;
+      this.setTimeoutPrice(() => {
+        this.filterOptions.minPrice = minPrice;
+      });
     },
     setMaxPrice(maxPrice) {
-      this.filterOptions.maxPrice = maxPrice;
-    },
-    resetFilters() {
-      this.filterOptions = {
-        type: "config",
-        minPrice: "",
-        maxPrice: "",
-        sortBy: this.sortOptions.length ? this.sortOptions[0].label : "",
-        products: this.productOptions.length
-          ? this.productOptions[0].label
-          : "",
-        game: this.gameOptions.length ? this.gameOptions[0].label : "",
-        tagSelect: [],
-      };
-      this.$refs.inputMinPrice.inputValue = "";
-      this.$refs.inputMaxPrice.inputValue = "";
-      this.$emit("resetFilters");
+      this.setTimeoutPrice(() => {
+        this.filterOptions.maxPrice = maxPrice;
+      });
     },
     addTagSelect(tag) {
       if (!this.filterOptions.tagSelect.includes(tag)) {
@@ -224,6 +207,7 @@ export default {
   background: none;
   padding: 12px 52px;
   color: #ffffff;
+  transition: background-color 0.4s ease;
 }
 
 .filters__button-configs:hover {
@@ -235,6 +219,7 @@ export default {
   background: none;
   padding: 12px 52px;
   color: #ffffff;
+  transition: background-color 0.4s ease;
 }
 
 .filters__button-scripts:hover {
@@ -275,8 +260,7 @@ export default {
 }
 .filters__tags-item {
   border: none;
-  background: none;
-  background-color: #1a1a1e;
+  background: #1a1a1e none;
   color: #8c8e94;
   border-radius: 60px;
   padding: 8px 18px;
@@ -289,17 +273,5 @@ export default {
 .filters__tags-item_select {
   background-color: #b2b6ff;
   color: #121214;
-}
-
-.filters__reset {
-  margin-top: 30px;
-  border: none;
-  background: none;
-  color: #b2b6ff;
-}
-
-.filters__reset:hover {
-  cursor: pointer;
-  opacity: 0.7;
 }
 </style>

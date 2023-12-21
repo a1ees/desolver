@@ -1,5 +1,5 @@
 <template>
-  <modal-component v-if="isOpen">
+  <modal-component :isOpenModal="isOpen">
     <template #container>
       <div class="modal__container">
         <div class="modal__content">
@@ -86,9 +86,13 @@ export default {
   },
   computed: {
     transformSub() {
-      const transformSub = { ...this.selectSub };
-      transformSub.days = transformSub.days.split(" ").slice(1).join(" ");
-      return transformSub;
+      if (this.isOpen) {
+        const transformSub = { ...this.selectSub };
+        transformSub.days = transformSub.days.split(" ").slice(1).join(" ");
+        return transformSub;
+      } else {
+        return {};
+      }
     },
   },
   methods: {

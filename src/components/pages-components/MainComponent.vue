@@ -17,6 +17,7 @@
 import FooterComponent from "./FooterComponent.vue";
 import HeaderProfileComponent from "./HeaderProfileComponent.vue";
 import NavigationComponent from "./NavigationComponent.vue";
+import "../../assets/vendor/animations.css";
 
 export default {
   components: {

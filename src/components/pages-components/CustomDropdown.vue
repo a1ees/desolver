@@ -8,16 +8,18 @@
         class="custom__dropdown-image"
       />
     </div>
-    <ul v-if="isOpen" class="custom__dropdown-options">
-      <li
-        v-for="(option, index) in options"
-        :key="index"
-        @click="selectOption(option)"
-        class="custom__dropdown-item"
-      >
-        {{ option.label }}
-      </li>
-    </ul>
+    <transition name="dropdown">
+      <ul v-if="isOpen" class="custom__dropdown-options">
+        <li
+          v-for="(option, index) in options"
+          :key="index"
+          @click="selectOption(option)"
+          class="custom__dropdown-item"
+        >
+          {{ option.label }}
+        </li>
+      </ul>
+    </transition>
   </div>
 </template>
 
@@ -52,7 +54,6 @@ export default {
 
 <style scoped>
 .custom__dropdown {
-  background-color: #2b2b31;
   border-radius: 8px;
   color: #6c6c7a;
   font-size: 16px;
@@ -67,12 +68,16 @@ export default {
   padding: 12px 16px;
   display: flex;
   justify-content: space-between;
+  background-color: #2b2b31;
+  border-radius: 8px;
 }
 
 .custom__dropdown-options {
   list-style: none;
   margin: 0;
   padding: 0;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .custom__dropdown-item {

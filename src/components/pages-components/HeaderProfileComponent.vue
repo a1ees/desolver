@@ -24,7 +24,11 @@
           class="header__navigate-button"
           @click.stop="toggleNavBar"
         />
-        <navigation-component v-if="isSmallScreen && isOpenNavBar" />
+        <transition name="nav">
+          <div v-if="isSmallScreen && isOpenNavBar">
+            <navigation-component />
+          </div>
+        </transition>
       </div>
     </div>
   </header>

@@ -1,5 +1,5 @@
 <template>
-  <modal-component v-if="isOpenModal">
+  <modal-component :isOpenModal="isOpenModal">
     <template #container>
       <div class="modal__container">
         <div class="modal__content">

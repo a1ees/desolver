@@ -1,8 +1,42 @@
 <template>
-  <div class="page__modal modal">
+  <div class="page__modal modal" :class="{ modal__visible: showModal }">
     <slot name="container"></slot>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      showModal: false,
+    };
+  },
+  props: {
+    isOpenModal: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  watch: {
+    isOpenModal() {
+      if (this.isOpenModal) {
+        this.$nextTick(() => {
+          setTimeout(() => {
+            this.showModal = true;
+          }, 1);
+        });
+      } else {
+        this.$nextTick(() => {
+          setTimeout(() => {
+            this.showModal = false;
+          }, 1);
+        });
+      }
+      console.log("asdasd");
+    },
+  },
+};
+</script>
 
 <style scoped>
 .modal {
@@ -17,5 +51,14 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s linear, visibility 0s linear 0.3s;
+}
+
+.modal__visible {
+  visibility: visible;
+  transition: opacity 0.3s linear;
+  opacity: 1;
 }
 </style>

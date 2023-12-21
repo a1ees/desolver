@@ -1,0 +1,21 @@
+<template>
+  <svg
+    width="16"
+    height="14"
+    viewBox="0 0 16 14"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      class="exit-icon-path"
+      d="M4.00039 0V2H2.00039V12H4.00039V14H0.000391006V0H4.00039ZM4.00039 8V6H11.6004L7.30039 1.7L8.70039 0.3L15.4004 7L8.70039 13.7L7.30039 12.3L11.6004 8H4.00039Z"
+      fill="#6C6C7A"
+    />
+  </svg>
+</template>
+<style>
+.navigation__item--exit:hover .navigation__item-exit_button .exit-icon-path {
+  fill: #fff;
+  transition: fill 0.3s ease;
+}
+</style>
