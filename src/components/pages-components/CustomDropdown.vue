@@ -52,41 +52,42 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .custom__dropdown {
   border-radius: 8px;
   color: #6c6c7a;
   font-size: 16px;
   line-height: 19.2px;
-}
 
-.custom__dropdown:hover {
-  cursor: pointer;
-}
+  &:hover {
+    cursor: pointer;
+  }
 
-.custom__dropdown-selected {
-  padding: 12px 16px;
-  display: flex;
-  justify-content: space-between;
-  background-color: #2b2b31;
-  border-radius: 8px;
-}
+  &-selected {
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #2b2b31;
+    border-radius: 8px;
+  }
 
-.custom__dropdown-options {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border-radius: 8px;
-  overflow: hidden;
-}
+  &-options {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
 
-.custom__dropdown-item {
-  padding: 12px 16px;
-  background-color: #1a1a1e;
-  margin: 0;
-}
-.custom__dropdown-item:hover {
-  cursor: pointer;
-  color: #b2b6ff;
+  &-item {
+    padding: 12px 16px;
+    background-color: #1a1a1e;
+    margin: 0;
+
+    &:hover {
+      cursor: pointer;
+      color: #b2b6ff;
+    }
+  }
 }
 </style>

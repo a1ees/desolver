@@ -80,6 +80,11 @@ export default {
   }
 }
 
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+
 .password {
   position: relative;
   width: 100%;
