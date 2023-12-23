@@ -209,10 +209,11 @@ export default {
   background-image: url("../../assets/images/logo/cheackbox.svg");
   background-size: cover;
   cursor: pointer;
+  transition: background-image 0.3s ease;
 }
 
 .auth-form__checkbox-button:checked + .auth-form__checkbox-label {
-  opacity: 0.5;
+  background-image: url("../../assets/images/logo/checkbox-checked.svg");
 }
 
 .auth-form__checkbox-text {
