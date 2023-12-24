@@ -1,48 +1,7 @@
 <template>
   <nav class="content__navigation navigation">
     <ul class="navigation__list">
-      <li
-        class="navigation__item"
-        :class="{ navigation__item_select: $route.path === '/profile' }"
-        @click.stop="$router.push('/profile')"
-      >
-        Профиль
-      </li>
-      <li
-        class="navigation__item"
-        :class="{ navigation__item_select: $route.path === '/settings' }"
-        @click.stop="$router.push('/settings')"
-      >
-        Настройки
-      </li>
-      <li
-        class="navigation__item"
-        :class="{ navigation__item_select: $route.path === '/inventory' }"
-        @click.stop="$router.push('/inventory')"
-      >
-        Инвентарь
-      </li>
-      <li
-        class="navigation__item"
-        :class="{ navigation__item_select: $route.path === '/market' }"
-        @click.stop="$router.push('/market')"
-      >
-        Маркет
-      </li>
-      <li
-        class="navigation__item"
-        :class="{ navigation__item_select: $route.path === '/subscribe' }"
-        @click.stop="$router.push('/subscribe')"
-      >
-        Подписка
-      </li>
-      <li
-        class="navigation__item navigation__item_pre-last"
-        :class="{ navigation__item_select: $route.path === '/support' }"
-        @click.stop="$router.push('/support')"
-      >
-        Поддержка
-      </li>
+      <nav-item-component />
       <li
         class="navigation__item navigation__item--exit"
         :class="{ navigation__item_select: $route.path === '/' }"
@@ -70,9 +29,10 @@ import "../../assets/vendor/normalize.css";
 import router from "@/router/router";
 import ModalExit from "./modals/ModalExit.vue";
 import ExitButtonIcon from "@/components/icons/ExitButtonIcon.vue";
+import NavItemComponent from "@/components/pages-components/NavItemComponent.vue";
 
 export default {
-  components: { ExitButtonIcon, ModalExit },
+  components: { NavItemComponent, ExitButtonIcon, ModalExit },
   name: "NavigationComponent",
   data() {
     return {
@@ -119,29 +79,6 @@ export default {
   padding: 0;
   margin: 0;
   list-style: none;
-}
-.navigation__item {
-  background-color: #1a1a1e;
-  color: #6c6c7a;
-  padding: 16px 0px 16px 24px;
-  width: 300px;
-}
-
-.navigation__item:hover {
-  cursor: pointer;
-  color: #fff;
-  transition: color 0.3s ease;
-}
-
-.navigation__item_pre-last {
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-}
-
-.navigation__item_select {
-  background-color: #b2b6ff;
-  color: #1a1a1e;
-  border-radius: 8px;
 }
 .navigation__item--exit {
   display: flex;

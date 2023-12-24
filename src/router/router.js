@@ -8,18 +8,50 @@ import SubscribePage from "../components/pages/SubscribePage.vue";
 import SupportPage from "../components/pages/SupportPage.vue";
 import MarketPage from "../components/pages/MarketPage.vue";
 import InventoryPage from "../components/pages/InventoryPage.vue";
+import NotFoundPage from "@/components/pages/NotFoundPage.vue";
 
-export default createRouter({
+const isLoggedIn = () => localStorage.getItem("user") !== null;
+
+const authGuard = (to, from, next) => {
+  if (!isLoggedIn()) {
+    next("/login");
+  } else {
+    next();
+  }
+};
+
+const redirectToProfileIfLoggedIn = (to, from, next) => {
+  if (isLoggedIn()) {
+    next("/profile");
+  } else {
+    next();
+  }
+};
+
+const routes = [
+  { path: "/", component: MainPage, beforeEnter: redirectToProfileIfLoggedIn },
+  {
+    path: "/register",
+    component: RegisterPage,
+    beforeEnter: redirectToProfileIfLoggedIn,
+  },
+  {
+    path: "/login",
+    component: AuthPage,
+    beforeEnter: redirectToProfileIfLoggedIn,
+  },
+  { path: "/profile", component: ProfilePage, beforeEnter: authGuard },
+  { path: "/settings", component: SettingsPage, beforeEnter: authGuard },
+  { path: "/subscribe", component: SubscribePage, beforeEnter: authGuard },
+  { path: "/support", component: SupportPage, beforeEnter: authGuard },
+  { path: "/market", component: MarketPage, beforeEnter: authGuard },
+  { path: "/inventory", component: InventoryPage, beforeEnter: authGuard },
+  { path: "/:catchAll(.*)", component: NotFoundPage },
+];
+
+const router = createRouter({
   history: createWebHashHistory(),
-  routes: [
-    { path: "/", component: MainPage },
-    { path: "/register", component: RegisterPage },
-    { path: "/login", component: AuthPage },
-    { path: "/profile", component: ProfilePage },
-    { path: "/settings", component: SettingsPage },
-    { path: "/subscribe", component: SubscribePage },
-    { path: "/support", component: SupportPage },
-    { path: "/market", component: MarketPage },
-    { path: "/inventory", component: InventoryPage },
-  ],
+  routes,
 });
+
+export default router;
