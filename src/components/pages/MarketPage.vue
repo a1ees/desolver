@@ -300,4 +300,28 @@ export default {
   justify-content: center;
   color: #2b2b31;
 }
+
+@media screen and (max-width: 1840px) {
+  .empty {
+    width: 750px;
+  }
+}
+
+@media screen and (max-width: 1680px) {
+  .empty {
+    max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .empty {
+    max-width: 400px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .empty {
+    max-width: 90vw;
+  }
+}
 </style>
