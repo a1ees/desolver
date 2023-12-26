@@ -104,6 +104,12 @@ export default {
   gap: 16px;
 }
 
+@media screen and (max-width: 760px) {
+  .market__pagination {
+    width: 90vw;
+  }
+}
+
 .pagination__button {
   border: none;
   border-radius: 8px;

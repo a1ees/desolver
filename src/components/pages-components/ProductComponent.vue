@@ -49,12 +49,6 @@ export default {
 </script>
 
 <style scoped>
-.products__items {
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
 .products__item {
   display: flex;
   flex-direction: column;
@@ -62,8 +56,6 @@ export default {
   border-radius: 8px;
   overflow: hidden;
   background-color: #151518;
-  max-width: 288px;
-  width: 100%;
 }
 .products__image {
   height: 110px;

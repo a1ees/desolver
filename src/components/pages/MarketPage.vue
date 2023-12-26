@@ -225,6 +225,15 @@ export default {
 .market {
   display: flex;
 }
+
+@media screen and (max-width: 760px) {
+  .market {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .market__products {
   margin-bottom: 120px;
 }
@@ -232,9 +241,15 @@ export default {
 .products__filter {
   display: flex;
   flex-direction: row;
-  margin-bottom: 24px;
   gap: 8px;
 }
+
+@media screen and (max-width: 760px) {
+  .products__filter {
+    width: 90vw;
+  }
+}
+
 .products__filter-button {
   max-width: 67px;
 }
@@ -245,6 +260,34 @@ export default {
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   width: 888px;
+  margin-top: 24px;
+}
+
+@media screen and (max-width: 1840px) {
+  .products__items {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 750px;
+  }
+}
+
+@media screen and (max-width: 1680px) {
+  .products__items {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .products__items {
+    max-width: 400px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .products__items {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 90vw;
+  }
 }
 
 .products__empty {

@@ -275,7 +275,7 @@ export default {
   text-align: center;
   padding: 0;
   color: #8c8e94;
-  margin: 24px 0px 84px 0px;
+  margin: 24px 0 0 0;
 }
 
 @media screen and (max-width: 360px) {
@@ -288,6 +288,7 @@ export default {
 .content__video {
   position: relative;
   margin-bottom: 103px;
+  margin-top: 84px;
 }
 
 @media screen and (max-width: 768px) {

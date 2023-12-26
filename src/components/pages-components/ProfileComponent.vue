@@ -80,7 +80,6 @@ export default {
   border-radius: 8px;
   background-color: #b2b6ff;
   padding: 8px 16px;
-  margin-bottom: 32px;
 }
 
 @media screen and (max-width: 500px) {
@@ -158,6 +157,7 @@ export default {
 .section__user-info {
   display: flex;
   justify-content: space-between;
+  margin-top: 32px;
 }
 
 @media screen and (max-width: 500px) {

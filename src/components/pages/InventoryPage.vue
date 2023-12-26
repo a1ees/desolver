@@ -447,6 +447,13 @@ export default {
   display: flex;
 }
 
+@media screen and (max-width: 760px) {
+  .content {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 .inventory__items {
 }
 
@@ -456,6 +463,9 @@ export default {
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
-  margin-bottom: 16px;
+}
+
+.inventory__items-title:not(:first-child) {
+  margin-top: 24px;
 }
 </style>

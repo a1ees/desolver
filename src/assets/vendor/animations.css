@@ -46,3 +46,18 @@
 .dropdown-enter, .dropdown-leave-to {
     opacity: 0;
 }
+
+
+.eye-leave-active {
+    animation: eye-leave 0.3s ease-in-out;
+}
+
+
+@keyframes eye-leave {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}

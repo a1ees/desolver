@@ -189,24 +189,39 @@ export default {
   flex-direction: column;
   margin-left: 48px;
   height: 100%;
-  width: 100%;
   gap: 24px;
+}
+
+@media screen and (max-width: 760px) {
+  .market__filters {
+    display: none;
+  }
 }
 
 .filters__buttons {
   border-radius: 8px;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   font-size: 16px;
   line-height: 19px;
   background-color: #2b2b31;
+  width: 348px;
 }
+
+@media screen and (max-width: 1420px) {
+  .filters__buttons {
+    width: 230px;
+  }
+}
+
 .filters__button-configs {
   border: 0;
   background: none;
-  padding: 12px 52px;
+  padding: 12px 24px;
   color: #ffffff;
+  width: 100%;
   transition: background-color 0.4s ease;
 }
 
@@ -216,8 +231,9 @@ export default {
 
 .filters__button-scripts {
   border: 0;
+  width: 100%;
   background: none;
-  padding: 12px 52px;
+  padding: 12px 24px;
   color: #ffffff;
   transition: background-color 0.4s ease;
 }

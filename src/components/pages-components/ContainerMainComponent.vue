@@ -24,6 +24,7 @@ export default {
   width: 100%;
   color: #fff;
   z-index: 1;
+  overflow: hidden;
 }
 
 .page__container {

@@ -126,7 +126,6 @@ export default {
 .header__avatar {
   width: 32px;
   height: 32px;
-  margin-right: 12px;
 }
 
 .header__login {
@@ -135,6 +134,7 @@ export default {
   line-height: 24px;
   padding: 0;
   margin: 0;
+  margin-left: 12px;
 }
 
 @media screen and (max-width: 1260px) {

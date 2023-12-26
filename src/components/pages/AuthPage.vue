@@ -127,21 +127,8 @@ export default {
 .header {
   width: 100%;
   padding-top: 32px;
-  margin-bottom: 185px;
   display: flex;
   justify-content: center;
-}
-
-@media screen and (max-width: 1440px) {
-  .header {
-    margin-bottom: 155px;
-  }
-}
-
-@media screen and (max-width: 580px) {
-  .header {
-    margin-bottom: 65px;
-  }
 }
 
 .header__logo {
@@ -157,7 +144,21 @@ export default {
   height: 100%;
   display: flex;
   justify-content: center;
+  margin-top: 185px;
 }
+
+@media screen and (max-width: 1440px) {
+  .content {
+    margin-top: 155px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .content {
+    margin-top: 65px;
+  }
+}
+
 .auth-form {
   max-width: calc(564px - 32px - 32px);
   width: 100%;
@@ -176,23 +177,21 @@ export default {
 
 .auth-form__title {
   padding: 0;
-  margin: 0px 0px 24px 0px;
+  margin: 0;
 }
 .auth-form__form {
   display: flex;
   flex-direction: column;
-}
-
-.auth-form__input_login {
-  margin-bottom: 16px;
+  margin: 24px 0px 0px 0px;
 }
 .auth-form__input_password {
-  margin-bottom: 16px;
+  margin-top: 16px;
 }
 
 .auth-form__checkbox {
   display: flex;
   align-items: center;
+  margin-top: 16px;
 }
 
 .auth-form__checkbox-button {
@@ -218,8 +217,7 @@ export default {
 
 .auth-form__checkbox-text {
   padding: 0;
-  margin: 0;
-  margin-left: 16px;
+  margin: 0 0 0 16px;
   font-size: 16px;
   line-height: 19px;
   letter-spacing: 5%;
@@ -233,12 +231,13 @@ export default {
 }
 
 .auth-form__submit-btn {
-  margin: 24px 0px;
+  margin-top: 24px;
 }
 
 .auth-form__navlink {
   display: flex;
   justify-content: space-between;
+  margin-top: 24px;
 }
 
 .auth-form__navlink-item {
